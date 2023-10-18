@@ -32,11 +32,34 @@ with open(DELIVERIES , 'r') as file:
         if match_id in match_id_for_2015:
             if bowler not in total_run_deliveries:
                 total_run_deliveries[bowler] = {'total' : 0, 'over' :  0}
+            else:
+                total_run_deliveries[bowler]['total'] += int(total_run)
+                total_run_deliveries[bowler]['over'] += (1/6)
+    
+    for bowler in total_run_deliveries:
+        total_run_deliveries[bowler]['over'] = round(total_run_deliveries[bowler]['over'])
+        runs = total_run_deliveries[bowler]['total']
+        overs = round(total_run_deliveries[bowler]['over'])
+        economy = runs / overs
+        total_run_deliveries[bowler]['economy'] = round(economy, 2)
 
-        #calculating total runs conceded by the bowler and count of overs he delivered
-        for bowler in total_run_deliveries:
-            total_run_deliveries[bowler]['total'] += int(total_run)
+    sorted_list = sorted(total_run_deliveries.items(), key= lambda x : x[1]['economy'])
 
-        
-    # print(total_run_deliveries)
-    # print(bowler_count)
+    top_10_economical_bowler = sorted_list[:10]
+    # print(top_10_economical_bowler)
+
+    name = []
+    economy = []
+    for i in range(len(top_10_economical_bowler)):
+        name.append(top_10_economical_bowler[i][0])
+        economy.append(top_10_economical_bowler[i][1]['economy'])
+    # print(name, economy)
+
+    plt.bar(name, economy)
+    plt.xlabel("Bowlers")
+    plt.ylabel("Economy Rate")
+    plt.xticks(rotation=90)
+    plt.title("Top 10 Economic Bowlers of the Season 2015-16")
+    plt.savefig("../images/top_10_economical_bowler.png")
+
+
