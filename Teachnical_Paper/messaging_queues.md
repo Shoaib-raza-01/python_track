@@ -1,4 +1,4 @@
-# Messaging 
+# Messaging Queues
 
 
 ### What are Messaging Queues?
@@ -8,9 +8,9 @@ As the name suggests it is a queue where messages are being stored for processin
 We have mainly three componets in a messaging queues:
 1. **Producer** : It is the system/application that generates and sends the message.
 2. **Consumer** :These are the applications that processes the message sent by the producer.
-3. **Queue**:  A queue is the place where messages are stored until they can be processed by consumers. The producer places each message onto the end of the queue.
+3. **Queue** :  A queue is the place where messages are stored until they can be processed by consumers. The producer places each message onto the end of the queue.
 
-![Messaging Queue image](https://www.cloudamqp.com/img/blog/thumb-mq.jpg "Message Queue"){:height="200px" width="200px"}
+![Messaging Queue image](https://www.cloudamqp.com/img/blog/thumb-mq.jpg "Message Queue")
 
 
 ### Why they are used? 
@@ -34,7 +34,7 @@ EMB is the wider version and an EMB often incorporates message queues as a core 
 
 EMB is a software architectural pattern that supports real-time data exchange between applications. The EMB makes integration easier by performing operations like data transformation, protocol conversion, message routing. Applications pass relevant data to the EMB, and it converts and forwards the data to other applications that need it.
 
-![EMB](https://www.tutorialspoint.com/soa/images/esb_basics.jpg "Enterprise Message Bus"){:height="200px" width="200px"}
+![EMB](https://www.tutorialspoint.com/soa/images/esb_basics.jpg "Enterprise Message Bus")
 
 
 There are several tool available for message queues but some of the most popular tool for messaging queues are:
