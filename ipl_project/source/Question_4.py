@@ -30,7 +30,7 @@ with open('../dataset/matches.csv', 'r') as file:
         else:
             team_count_by_season[season][team2] += 1
         
-    # print(team_count_by_season)
+    print(team_count_by_season)
     # seasons = list(team_count_by_season.keys())
 
 

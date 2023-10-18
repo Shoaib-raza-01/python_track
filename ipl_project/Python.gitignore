@@ -6,6 +6,13 @@ __pycache__/
 # C extensions
 *.so
 
+#explicitly ignoring myself (files)
+#ignoring virtual env
+/iplProject.env
+../iplProject.env
+../iplProject
+
+
 # Distribution / packaging
 .Python
 build/
