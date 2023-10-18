@@ -1,7 +1,8 @@
+"""CSV to read file MATPLOTLIB to plot graph"""
 import csv
 import matplotlib.pyplot as plt
 
-with open('../dataset/matches.csv', 'r') as file:
+with open('../dataset/matches.csv', 'r',encoding="utf-8") as file:
     data = csv.DictReader(file)
     team_count_by_season = {}
     for row in data:
@@ -28,8 +29,7 @@ with open('../dataset/matches.csv', 'r') as file:
         if team2 not in team_count_by_season[season]:
             team_count_by_season[season][team2] = 1
         else:
-            team_count_by_season[season][team2] += 1
-        
+            team_count_by_season[season][team2] += 1        
     print(team_count_by_season)
     # seasons = list(team_count_by_season.keys())
 
@@ -56,7 +56,6 @@ with open('../dataset/matches.csv', 'r') as file:
 
     # for season, details in team_count_by_season.items():
     #     print(f"Season: {season}")
-    
     #     height = []
     #     team = []
 
@@ -70,7 +69,6 @@ with open('../dataset/matches.csv', 'r') as file:
     #         plt.bar(season, height[i], label=team[i], bottom=bottom[i])
     #         bottom[i] += height[i]  
     #         print(bottom[i])
-
     # for season , details in team_count_by_season.items():
     #     print(f"season : {season}")
     #     height = []
@@ -78,7 +76,6 @@ with open('../dataset/matches.csv', 'r') as file:
         
     #     for name , count in details.items():
     #         # print(f"\t{name} : {count}")
-
     #         height.append(count)
     #         team.append(name)
     #     print(height, end="\n")

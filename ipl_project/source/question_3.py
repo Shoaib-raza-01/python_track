@@ -1,7 +1,8 @@
+"""CSV to read file MATPLOTLIB to plot graph"""
 import csv
 import matplotlib.pyplot as plt
 
-with open('../dataset/umpires.csv', 'r') as file:
+with open('../dataset/umpires.csv', 'r', encoding="utf-8") as file:
     umpire = csv.DictReader(file)
     country_count ={}
 
@@ -24,3 +25,4 @@ with open('../dataset/umpires.csv', 'r') as file:
     plt.title("Number of Umpires from different countries excluding INDIA")
     plt.xticks(rotation = 90)
     plt.savefig("../images/umpires_from_diff_country.png")
+    

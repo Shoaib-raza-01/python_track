@@ -1,7 +1,8 @@
+"""CSV to read file MATPLOTLIB to plot graph"""
 import csv
 import matplotlib.pyplot as plt
 
-with open('../dataset/deliveries.csv', 'r') as file:
+with open('../dataset/deliveries.csv', 'r', encoding="utf-8") as file:
     reader = csv.DictReader(file)
     player_run_dict = {}
 
@@ -31,3 +32,4 @@ with open('../dataset/deliveries.csv', 'r') as file:
     plt.title("Top 10 Scorers of RCB over the year")
     plt.xticks(rotation =45)
     plt.savefig("../images/top_10_of_RCB.png")
+    

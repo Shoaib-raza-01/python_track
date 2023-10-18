@@ -1,7 +1,9 @@
+"""CSV to read file MATPLOTLIB to plot graph"""
+
 import csv
 import matplotlib.pyplot as plt
 
-with open('../dataset/matches.csv', 'r') as file:
+with open('../dataset/matches.csv', 'r',encoding="utf-8") as file:
     data = csv.DictReader(file)
     team_count_by_season = {}
     for row in data:
@@ -44,4 +46,3 @@ with open('../dataset/matches.csv', 'r') as file:
     # )
     plt.savefig('../images/match_played_per_year.png')
     # plt.savefig('../images/test2.png')
-

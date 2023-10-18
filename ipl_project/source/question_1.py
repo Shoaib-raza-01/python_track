@@ -1,3 +1,4 @@
+"""READING THE CSV and PLOTING GRAPH"""
 import csv
 import matplotlib.pyplot as plt
 
@@ -5,7 +6,7 @@ FILE = '../dataset/deliveries.csv'
 BATTING_TEAM = 'batting_team'
 RUNS = 'total_runs'
 
-with open(FILE , 'r') as file:
+with open(FILE , 'r', encoding="utf-8") as file:
     teams_run_dict = {}
     data=csv.DictReader(file)
 
@@ -20,7 +21,6 @@ with open(FILE , 'r') as file:
             teams_run_dict[batting_team]=int(runs)
         else:
             teams_run_dict[batting_team]+=int(runs)
-        
     team_name = list(teams_run_dict.keys())
     total_runs = list(teams_run_dict.values())
     plt.figure(figsize=(20,15))

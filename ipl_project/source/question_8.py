@@ -1,3 +1,4 @@
+"""CSV to read file MATPLOTLIB to plot graph"""
 import csv
 import matplotlib.pyplot as plt
 
@@ -6,20 +7,17 @@ DELIVERIES = '../dataset/deliveries.csv'
 
 match_id_for_2015 = []
 
-with open(MATCHES, 'r') as file:
+with open(MATCHES, 'r', encoding="utf-8") as file:
     matches = csv.DictReader(file)
 
 
     for _match in matches:
         match_id = _match.get('id')
-        season = _match.get('season')
-
-        
+        season = _match.get('season')        
         if season == '2015' and match_id not in match_id_for_2015:
             match_id_for_2015.append(match_id)
             
 # print(match_id_for_2015)
-
 with open(DELIVERIES , 'r') as file:
     deliveries = csv.DictReader(file)
     total_run_deliveries = {}
@@ -61,5 +59,3 @@ with open(DELIVERIES , 'r') as file:
     plt.xticks(rotation=90)
     plt.title("Top 10 Economic Bowlers of the Season 2015-16")
     plt.savefig("../images/top_10_economical_bowler.png")
-
-
