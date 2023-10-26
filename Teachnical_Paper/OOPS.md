@@ -86,12 +86,114 @@ person1.talk()
 
 ## 5. Inheritance
 
-- **Definition:** Inheritance is a mechanism that allows a new class (the child or subclass) to inherit all the attributes and methods from an existing class (the parent or superclass). 
+- **Definition :** Inheritance is a mechanism that allows a new class (the child or subclass) to inherit all the attributes and methods from an existing class (the parent or superclass). 
 
-- **Example:** If you have a "Vehicle" class, you can create subclasses like "Car" and "Bicycle" that inherit attributes and methods from the parent class.
+- **Types of inheritance :** 
+    - **Single Inheritance :**  Single inheritance enables a derived class to inherit properties from a single parent class
+
+        ```Python
+        # Base class
+        class Parent:
+            def func1(self):
+                print("This function is in parent class.")
+
+        # Derived class
+        class Child(Parent):
+            def func2(self):
+                print("This function is in child class.")
+
+        # Driver's code
+        object = Child()
+        object.func1()
+        object.func2()
+        ```
+    - **Multiple Inheritance :**  When a class is derived from more than one class so that it can have the methods of both the class is called multipe inheritance
+        ```Python
+        # Base class1
+        class Mother:
+            mothername = ""
+            def mother(self):
+                print(self.mothername)
+
+        # Base class2
+        class Father:
+            fathername = ""
+            def father(self):
+                print(self.fathername)
+
+        # Derived class
+        class Son(Mother, Father):
+            def parents(self):
+                print("Father :", self.fathername)
+                print("Mother :", self.mothername)
+
+        # Driver's code
+        s1 = Son()
+        s1.fathername = "RAM"
+        s1.mothername = "SITA"
+        s1.parents()
+        ```
+    - **Multilevel Inheritance :** In multilevel inheritance, features of the base class and the derived class are further inherited into the new derived class.
+        ```Python
+        # Base class
+        class Grandfather:
+            def __init__(self, grandfathername):
+                self.grandfathername = grandfathername
+        # Intermediate class
+        class Father(Grandfather):
+            def __init__(self, fathername, grandfathername):
+                self.fathername = fathername
+                Grandfather.__init__(self, grandfathername)
+
+        # Derived class
+        class Son(Father):
+            def __init__(self, sonname, fathername, grandfathername):
+                self.sonname = sonname
+                Father.__init__(self, fathername, grandfathername)
+            def print_name(self):
+                print('Grandfather name :', self.grandfathername)
+                print("Father name :", self.fathername)
+                print("Son name :", self.sonname)
+
+        # Driver code
+        s1 = Son('Prince', 'Rampal', 'Lal mani')
+        print(s1.grandfathername)
+        s1.print_name()
+        ```
 
 ## 6. Polymorphism
 
-- **Definition:** Polymorphism allows objects of different classes to be treated as objects of a common superclass. It enables the use of a single interface to represent a general class of actions.
+- **Definition:** Polymprphism simply means having many form, base class will inherit methods from it's parent calss but it can also have it's own same methods with different implementation
 
-- **Example:** In a "Shape" hierarchy, both "Circle" and "Rectangle" classes can have a method called "area()". You can call `area()` on any shape object, and it will behave differently based on the actual shape type.
+```Python
+class Bird:
+
+	def intro(self):
+		print("There are many types of birds.")
+
+	def flight(self):
+		print("Most of the birds can fly but some cannot.")
+
+class sparrow(Bird):
+
+	def flight(self):
+		print("Sparrows can fly.")
+
+class ostrich(Bird):
+
+	def flight(self):
+		print("Ostriches cannot fly.")
+
+obj_bird = Bird()
+obj_spr = sparrow()
+obj_ost = ostrich()
+
+obj_bird.intro()
+obj_bird.flight()
+
+obj_spr.intro()
+obj_spr.flight()
+
+obj_ost.intro()
+obj_ost.flight()
+```
